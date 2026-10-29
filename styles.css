@@ -1,7 +1,13 @@
 /* Small adaptations of the supplied Hugo Academic template. */
 html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 body { overflow-wrap: break-word; }
-.section-title { margin: 0 0 1rem; font-size: 2.25rem; font-weight: 400; }
+.site-layout { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 64px; align-items: start; padding-top: 48px; padding-bottom: 40px; }
+.profile-sidebar { position: sticky; top: 100px; }
+#profile { padding: 0; }
+.main-content { min-width: 0; }
+.content-section { margin-bottom: 48px; }
+.content-section:last-child { margin-bottom: 0; }
+.section-title { margin: 0 0 22px; padding-bottom: 12px; border-bottom: 1px solid #d9dfe4; font-size: 1.45rem; font-weight: 700; line-height: 1.35; }
 .portrait-title h1 { font-size: 1.75em; font-weight: 300; margin: 20px 0 10px; }
 .portrait-title h3 { font-size: 1rem; line-height: 1.5; }
 .profile-photo { overflow: hidden; background: #eef0f3; }
@@ -17,9 +23,17 @@ body { overflow-wrap: break-word; }
 .education-icon { width: 25px; height: 25px; flex: 0 0 25px; margin-top: 4px; }
 .education-list p { margin: 0; }
 .education-list .institution { color: #666; font-size: .75rem; line-height: 1.5; }
-.card-simple .article-title { margin-bottom: 16px !important; line-height: 1.4; }
-.card-simple .article-style { font-size: .95rem; }
-.card-simple .article-style p:last-child { margin-bottom: 0; }
+.paper-entry + .paper-entry { margin-top: 30px; }
+.paper-entry .article-title { margin: 0 0 8px; font-size: 1.05rem; font-weight: 700; line-height: 1.5; }
+.paper-coauthors { margin: 0 0 12px; color: #555; font-size: .9rem; line-height: 1.5; }
+.paper-entry .article-style { font-size: .95rem; }
+.paper-entry .article-style p:last-child { margin-bottom: 0; }
+.paper-abstract { margin-top: 12px; }
+.paper-abstract > summary { display: inline-block; list-style: none; cursor: pointer; color: #2962ff; border: 1px solid #2962ff; border-radius: 3px; padding: 3px 10px; font-size: .75rem; line-height: 1.5; }
+.paper-abstract > summary::-webkit-details-marker { display: none; }
+.paper-abstract > summary:hover, .paper-abstract[open] > summary { background: #2962ff; color: #fff; }
+.paper-abstract > summary:focus-visible { outline: 3px solid #2962ff; outline-offset: 4px; }
+.paper-abstract > .article-style { margin-top: 16px; }
 .teaching-content h3:first-child { margin-top: 0; }
 .teaching-role { color: #666; font-size: .9rem; margin-bottom: 12px; }
 .course-list { list-style: none; padding: 0; margin: 0 0 36px; font-size: .9rem; }
@@ -39,6 +53,8 @@ body { overflow-wrap: break-word; }
 a:focus-visible, button:focus-visible { outline: 3px solid #2962ff; outline-offset: 4px; }
 @media (max-width: 991.98px) {
   html { scroll-padding-top: 68px; }
+  .site-layout { display: block; padding-top: 32px; }
+  .profile-sidebar { position: static; margin-bottom: 40px; }
   #navbar-main .container { position: relative; }
   .menu-toggle { display: flex; }
   #navbar-main .site-navigation { position: absolute; top: 100%; left: 0; right: 0; display: flex; flex-direction: column; margin: 0; padding: 8px 24px 16px; background: #fff; box-shadow: 0 6px 10px rgba(0,0,0,.08); }
@@ -47,13 +63,11 @@ a:focus-visible, button:focus-visible { outline: 3px solid #2962ff; outline-offs
   #navbar-main .navbar-brand { margin-right: auto; }
   #navbar-main .nav-link { padding: 10px 0; }
   #profile { padding-top: 0; }
-  .section-title { font-size: 2rem; }
-  .section-heading { margin-bottom: 20px; }
+  .section-title { font-size: 1.35rem; }
 }
 @media (max-width: 575.98px) {
   .container { padding-left: 24px; padding-right: 24px; }
   .profile-details > div + div { margin-top: 20px; }
-  .card-simple { padding: 18px; }
   .course-list li { gap: 12px; }
   .contact-list li { gap: 16px; }
 }
