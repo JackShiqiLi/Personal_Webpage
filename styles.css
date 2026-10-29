@@ -4,7 +4,8 @@ body { overflow-wrap: break-word; }
 .section-title { margin: 0 0 1rem; font-size: 2.25rem; font-weight: 400; }
 .portrait-title h1 { font-size: 1.75em; font-weight: 300; margin: 20px 0 10px; }
 .portrait-title h3 { font-size: 1rem; line-height: 1.5; }
-.profile-monogram { display: flex; align-items: center; justify-content: center; background: #eef0f3; color: #677382; font: 400 4rem Montserrat, sans-serif; letter-spacing: .03em; }
+.profile-photo { overflow: hidden; background: #eef0f3; }
+.profile-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; transform: scale(1.65); transform-origin: 50% 28%; }
 .profile-icon { width: 1.7rem; height: 1.7rem; display: block; }
 .network-icon { display: flex; justify-content: center; align-items: center; gap: 16px; padding: 0; }
 .network-icon li { display: block; margin: 0; }

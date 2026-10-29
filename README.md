@@ -14,6 +14,7 @@ The site uses ordinary HTML, CSS, and JavaScript. No R or Python runtime, npm in
 - `site.js`: accessible mobile navigation.
 - `.nojekyll`: serves the files directly through GitHub Pages.
 - `files/CV_ShiqiLi.pdf`: downloadable academic CV.
+- `ShiqiLi_photo.jpg`: supplied portrait; displayed with a CSS crop while the image file remains unchanged.
 
 For an optional local preview, run this command from this directory. Python serves the static files locally; it is not part of the deployed website.
 
@@ -23,13 +24,13 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 Open [the local preview](http://127.0.0.1:8000). Stop the server with `Ctrl+C`.
 
-## Upload source now; publish later
+## GitHub repository and publishing
 
 Use the existing repository [JackShiqiLi/Personal_Webpage](https://github.com/JackShiqiLi/Personal_Webpage). Add this directory's contents at the repository root and commit/push to `main`.
 
-GitHub Pages is currently not enabled. Uploading or committing source files does not activate Pages or publish the website.
+GitHub Pages is enabled and the website is live at [jackshiqili.github.io/Personal_Webpage/](https://jackshiqili.github.io/Personal_Webpage/). Its publishing source is `main` and `/(root)`. Pushing changes to `main` triggers a new deployment and updates the published site.
 
-When ready to publish:
+To review or restore the publishing settings:
 
 1. Open **Repository Settings → Pages**. Under **Build and deployment**, select **Deploy from a branch**, then **main** and **/(root)**, and save.
 2. Wait for deployment and check [the default project-site address](https://jackshiqili.github.io/Personal_Webpage/), including navigation and the CV download.
@@ -40,7 +41,7 @@ See [GitHub's publishing-source instructions](https://docs.github.com/en/pages/g
 
 The intended domain is `shiqi-li.com`; it has not been purchased. Domain registration and renewal are separate from GitHub Pages hosting. Confirm availability and the renewal price with the chosen registrar before registering it.
 
-When ready to publish and once the domain is owned:
+Once the domain is owned:
 
 1. Open **GitHub account Settings → Pages → Add a domain** and enter `shiqi-li.com`. Add the exact **TXT** record GitHub supplies to the domain's DNS settings, then click **Verify**. Keep this TXT record. This is an account setting, separate from the repository setting.
 2. Open **Repository Settings → Pages → Custom domain**, enter `shiqi-li.com`, and save **before** adding the routing records below. For branch deployment, GitHub creates a `CNAME` file containing the domain; pull that commit into the local checkout before the next push. Do not create a `CNAME` file or configure the custom domain before ownership is established.
@@ -63,9 +64,19 @@ Official references: [domain verification](https://docs.github.com/en/pages/conf
 
 ## Maintain the content
 
-Edit `index.html` for text and links, and `styles.css` for appearance. Keep the reused `assets/academic.css` unchanged and retain its MIT notice when copying or distributing the site. Replace the CV at the same filename to preserve its download link. Preview changes at desktop and phone widths, check keyboard and mobile navigation, links, and downloads, then commit and push to `main`. Once Pages is enabled, pushes to `main` republish the site; until then, they update only the repository.
+| To change | Edit |
+| --- | --- |
+| Website words, headings, links, browser title, and meta descriptions | `index.html` |
+| Colors, spacing, typography, layout, and portrait crop | `styles.css` |
+| Downloadable CV | Replace `files/CV_ShiqiLi.pdf` |
+| Profile portrait | Replace `ShiqiLi_photo.jpg` |
+| Setup and maintenance instructions | `README.md`; this text is not rendered on the website |
 
-Biographical, education, research, and teaching information is drawn from the existing Google Site and academic CV. Keep paper titles, authors, statuses, dates, and research claims consistent with those sources. The profile currently uses an `SL` monogram because a portrait was not supplied. Replace it with the user's portrait when available, preserving the avatar classes and adding suitable alternative text. A job-market-paper PDF was not available for this draft; add a paper download only when the actual PDF is supplied.
+In `index.html`, find the relevant section by its ID: `about` (biography and education), `research`, `work-in-progress`, `teaching`, or `contact`. Edit the words between HTML tags while preserving the tags and section IDs. For a link, change its `href` value to change the destination; change the text between `<a>` and `</a>` to change its label. The browser title and meta descriptions are near the top of the file in `<head>`.
+
+Keep the reused `assets/academic.css` unchanged and retain its MIT notice when copying or distributing the site. Replace the CV and portrait at the same filenames to preserve their links. Preview changes at desktop and phone widths, check keyboard and mobile navigation, links, and downloads, then commit and push to `main`. With the current Pages configuration, pushes to `main` republish the site.
+
+Biographical, education, research, and teaching information is drawn from the existing Google Site and academic CV. Keep paper titles, authors, statuses, dates, and research claims consistent with those sources. The profile uses the supplied `ShiqiLi_photo.jpg`; its displayed crop is controlled by CSS without modifying the original image. A job-market-paper PDF was not available for this draft; add a paper download only when the actual PDF is supplied.
 
 The CV was copied unchanged from the workspace's `Academic/CV_ShiqiLi.pdf` and still includes the old Google Site URL. Update the source CV and replace the website copy once the canonical domain is finalized.
 
