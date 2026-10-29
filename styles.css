@@ -1,4 +1,8 @@
 /* Small adaptations of the supplied Hugo Academic template. */
+:root { --brand-orange: #E77500; }
+a, a:hover, a:focus { color: var(--brand-orange); }
+#navbar-main .navbar-brand, #navbar-main .navbar-nav .nav-link { color: var(--brand-orange); }
+#navbar-main .navbar-nav .nav-link.active { color: var(--brand-orange) !important; }
 html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 body { overflow-wrap: break-word; }
 .site-layout { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 64px; align-items: start; padding-top: 48px; padding-bottom: 40px; }
@@ -10,6 +14,8 @@ body { overflow-wrap: break-word; }
 .section-title { margin: 0 0 22px; padding-bottom: 12px; border-bottom: 1px solid #d9dfe4; font-size: 1.45rem; font-weight: 700; line-height: 1.35; }
 .portrait-title h1 { font-size: 1.75em; font-weight: 300; margin: 20px 0 10px; }
 .portrait-title h3 { font-size: 1rem; line-height: 1.5; }
+.university-link { display: inline-flex; align-items: center; gap: 8px; }
+.university-logo { width: 28px; height: 36px; flex: 0 0 28px; object-fit: contain; }
 .profile-photo { overflow: hidden; background: #eef0f3; }
 .profile-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; transform: scale(1.65); transform-origin: 50% 28%; }
 .profile-icon { width: 1.7rem; height: 1.7rem; display: block; }
@@ -29,10 +35,10 @@ body { overflow-wrap: break-word; }
 .paper-entry .article-style { font-size: .95rem; }
 .paper-entry .article-style p:last-child { margin-bottom: 0; }
 .paper-abstract { margin-top: 12px; }
-.paper-abstract > summary { display: inline-block; list-style: none; cursor: pointer; color: #2962ff; border: 1px solid #2962ff; border-radius: 3px; padding: 3px 10px; font-size: .75rem; line-height: 1.5; }
+.paper-abstract > summary { display: inline-block; list-style: none; cursor: pointer; color: var(--brand-orange); border: 1px solid var(--brand-orange); border-radius: 3px; padding: 3px 10px; font-size: .75rem; line-height: 1.5; }
 .paper-abstract > summary::-webkit-details-marker { display: none; }
-.paper-abstract > summary:hover, .paper-abstract[open] > summary { background: #2962ff; color: #fff; }
-.paper-abstract > summary:focus-visible { outline: 3px solid #2962ff; outline-offset: 4px; }
+.paper-abstract > summary:hover, .paper-abstract[open] > summary { background: var(--brand-orange); color: #222; }
+.paper-abstract > summary:focus-visible { outline: 3px solid var(--brand-orange); outline-offset: 4px; }
 .paper-abstract > .article-style { margin-top: 16px; }
 .teaching-content h3:first-child { margin-top: 0; }
 .teaching-role { color: #666; font-size: .9rem; margin-bottom: 12px; }
@@ -50,7 +56,7 @@ body { overflow-wrap: break-word; }
 .back-to-top { font-size: .75rem; }
 .skip-link { position: fixed; top: -100px; left: 16px; z-index: 2000; background: #fff; padding: 12px 20px; }
 .skip-link:focus { top: 8px; }
-a:focus-visible, button:focus-visible { outline: 3px solid #2962ff; outline-offset: 4px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--brand-orange); outline-offset: 4px; }
 @media (max-width: 991.98px) {
   html { scroll-padding-top: 68px; }
   .site-layout { display: block; padding-top: 32px; }
