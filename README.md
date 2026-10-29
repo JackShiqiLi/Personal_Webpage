@@ -1,0 +1,68 @@
+# Shiqi Li — academic website
+
+A static adaptation of [hollina/template-job-market-website](https://github.com/hollina/template-job-market-website) for GitHub Pages. It preserves the selected template's Academic theme appearance by reusing its `public/css/academic.css` unchanged as `assets/academic.css`, with small local overrides.
+
+The site uses ordinary HTML, CSS, and JavaScript. No R or Python runtime, npm installation, or build step is required to publish it. The repository root should contain this directory's files.
+
+## Files and local preview
+
+- `index.html`: biography, research, teaching, and contact content.
+- `assets/academic.css`: the selected template's original Academic theme stylesheet.
+- `assets/academic-LICENSE.txt`: retained MIT copyright and license notice for the theme.
+- `assets/bootstrap-LICENSE.txt`: MIT license for Bootstrap, included in the theme stylesheet.
+- `styles.css`: small local overrides and responsive adjustments.
+- `site.js`: accessible mobile navigation.
+- `.nojekyll`: serves the files directly through GitHub Pages.
+- `files/CV_ShiqiLi.pdf`: downloadable academic CV.
+
+For an optional local preview, run this command from this directory. Python serves the static files locally; it is not part of the deployed website.
+
+```sh
+python3 -m http.server 8000 --bind 127.0.0.1
+```
+
+Open [the local preview](http://127.0.0.1:8000). Stop the server with `Ctrl+C`.
+
+## Publish on GitHub Pages
+
+1. Create the public repository `JackShiqiLi.github.io` under the `JackShiqiLi` account.
+2. Add this directory's contents at the repository root and push to `main`.
+3. Open **Repository Settings → Pages**. Under **Build and deployment**, select **Deploy from a branch**, then **main** and **/(root)**, and save.
+4. Wait for deployment and check [the default website address](https://jackshiqili.github.io), including navigation and the CV download.
+
+See [GitHub's publishing-source instructions](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
+
+## Connect the preferred domain
+
+The intended domain is `shiqi-li.com`; it has not been purchased. Domain registration and renewal are separate from GitHub Pages hosting. Confirm availability and the renewal price with the chosen registrar before registering it.
+
+Once the domain is owned:
+
+1. Open **GitHub account Settings → Pages → Add a domain** and enter `shiqi-li.com`. Add the exact **TXT** record GitHub supplies to the domain's DNS settings, then click **Verify**. Keep this TXT record. This is an account setting, separate from the repository setting.
+2. Open **Repository Settings → Pages → Custom domain**, enter `shiqi-li.com`, and save **before** adding the routing records below. For branch deployment, GitHub creates a `CNAME` file containing the domain; pull that commit into the local checkout before the next push. Do not create a `CNAME` file or configure the custom domain before ownership is established.
+3. At the DNS provider, configure these records. `@` means the bare domain; providers may label it differently.
+
+| Type | Name | Value |
+| --- | --- | --- |
+| A | `@` | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+| CNAME | `www` | `JackShiqiLi.github.io` |
+
+The CNAME target contains no protocol or path. Replace conflicting web-hosting records for these names while preserving unrelated records, including email records and the verification TXT record. Do not add a wildcard record. GitHub supports an apex `ALIAS` or `ANAME` record as an alternative to the four A records if the DNS provider offers it.
+
+4. After DNS and certificate provisioning complete, enable **Enforce HTTPS** in the repository's Pages settings. DNS propagation and HTTPS availability can take up to 24 hours.
+5. Check both `https://shiqi-li.com` and `https://www.shiqi-li.com`. With the bare domain selected as the custom domain, GitHub redirects `www` to it. Update the website's canonical/social metadata, sitemap if added, and CV website address to the final domain.
+
+Official references: [domain verification](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages), [custom-domain and DNS setup](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site), and [HTTPS](https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https).
+
+## Maintain the content
+
+Edit `index.html` for text and links, and `styles.css` for appearance. Keep the reused `assets/academic.css` unchanged and retain its MIT notice when copying or distributing the site. Replace the CV at the same filename to preserve its download link. Preview changes at desktop and phone widths, check keyboard and mobile navigation, links, and downloads, then commit and push to `main`; GitHub Pages republishes the site.
+
+Biographical, education, research, and teaching information is drawn from the existing Google Site and academic CV. Keep paper titles, authors, statuses, dates, and research claims consistent with those sources. The profile currently uses an `SL` monogram because a portrait was not supplied. Replace it with the user's portrait when available, preserving the avatar classes and adding suitable alternative text. A job-market-paper PDF was not available for this draft; add a paper download only when the actual PDF is supplied.
+
+The CV was copied unchanged from the workspace's `Academic/CV_ShiqiLi.pdf` and still includes the old Google Site URL. Update the source CV and replace the website copy once the canonical domain is finalized.
+
+After launch, update links in academic profiles and application materials, and leave a prominent migration notice on the old Google Site so existing links remain useful.
