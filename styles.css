@@ -3,7 +3,7 @@
 a, a:hover, a:focus { color: var(--brand-orange); }
 #navbar-main .navbar-brand, #navbar-main .navbar-nav .nav-link { color: var(--brand-orange); }
 #navbar-main .navbar-nav .nav-link.active { color: var(--brand-orange) !important; }
-html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+html { font-size: 18px; scroll-behavior: smooth; scroll-padding-top: 88px; }
 body { overflow-wrap: break-word; }
 .site-layout { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 64px; align-items: start; padding-top: 48px; padding-bottom: 40px; }
 .profile-sidebar { position: sticky; top: 100px; }
@@ -23,21 +23,18 @@ body { overflow-wrap: break-word; }
 .network-icon li { display: block; margin: 0; }
 .network-icon a { display: flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
 .cv-icon { font-size: 1.45rem; font-weight: 700; line-height: 1; }
-.profile-details { margin-top: 30px; }
-.education-list { list-style: none; padding: 0; font-size: .9rem; }
-.education-list li { display: flex; gap: 10px; margin-bottom: 12px; }
-.education-icon { width: 25px; height: 25px; flex: 0 0 25px; margin-top: 4px; }
-.education-list p { margin: 0; }
-.education-list .institution { color: #666; font-size: .75rem; line-height: 1.5; }
 .paper-entry + .paper-entry { margin-top: 30px; }
 .paper-entry .article-title { margin: 0 0 8px; font-size: 1.05rem; font-weight: 700; line-height: 1.5; }
+.paper-entry .article-title a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .16em; }
 .paper-coauthors { margin: 0 0 12px; color: #555; font-size: .9rem; line-height: 1.5; }
 .paper-entry .article-style { font-size: .95rem; }
 .paper-entry .article-style p:last-child { margin-bottom: 0; }
 .paper-abstract { margin-top: 12px; }
-.paper-abstract > summary { display: inline-block; list-style: none; cursor: pointer; color: var(--brand-orange); border: 1px solid var(--brand-orange); border-radius: 3px; padding: 3px 10px; font-size: .75rem; line-height: 1.5; }
+.paper-abstract > summary { display: inline-flex; align-items: center; gap: .35em; list-style: none; cursor: pointer; color: var(--brand-orange); padding: 4px 0; font-size: .85rem; line-height: 1.5; }
 .paper-abstract > summary::-webkit-details-marker { display: none; }
-.paper-abstract > summary:hover, .paper-abstract[open] > summary { background: var(--brand-orange); color: #222; }
+.paper-abstract > summary:hover > span:first-child { text-decoration: underline; }
+.abstract-arrow { display: inline-block; }
+.paper-abstract[open] .abstract-arrow { transform: rotate(180deg); }
 .paper-abstract > summary:focus-visible { outline: 3px solid var(--brand-orange); outline-offset: 4px; }
 .paper-abstract > .article-style { margin-top: 16px; }
 .teaching-content h3:first-child { margin-top: 0; }
@@ -45,10 +42,6 @@ body { overflow-wrap: break-word; }
 .course-list { list-style: none; padding: 0; margin: 0 0 36px; font-size: .9rem; }
 .course-list li { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding: 8px 0; }
 .course-list li > span:last-child { white-space: nowrap; color: #666; }
-.contact-list { list-style: none; padding: 0; margin: 0; }
-.contact-list li { display: flex; align-items: flex-start; gap: 24px; margin-bottom: 28px; }
-.contact-list svg { width: 28px; height: 28px; flex: 0 0 28px; margin-top: 4px; }
-.contact-list address { font-style: normal; margin: 0; }
 .site-navigation { display: flex; flex-direction: row; margin-right: auto; }
 .menu-toggle { display: none; border: 0; padding: 10px; background: transparent; color: #34495e; cursor: pointer; }
 .site-footer { margin: 0; padding: 40px 0; text-align: center; }
@@ -58,7 +51,7 @@ body { overflow-wrap: break-word; }
 .skip-link:focus { top: 8px; }
 a:focus-visible, button:focus-visible { outline: 3px solid var(--brand-orange); outline-offset: 4px; }
 @media (max-width: 991.98px) {
-  html { scroll-padding-top: 68px; }
+  html { font-size: 16px; scroll-padding-top: 68px; }
   .site-layout { display: block; padding-top: 32px; }
   .profile-sidebar { position: static; margin-bottom: 40px; }
   #navbar-main .container { position: relative; }
@@ -73,8 +66,6 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--brand-orange); 
 }
 @media (max-width: 575.98px) {
   .container { padding-left: 24px; padding-right: 24px; }
-  .profile-details > div + div { margin-top: 20px; }
   .course-list li { gap: 12px; }
-  .contact-list li { gap: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .home-section { animation: none; } }
